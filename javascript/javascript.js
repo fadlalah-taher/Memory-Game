@@ -1,39 +1,75 @@
-let green = document.getElementById("#green");
-let red = document.getElementById("#red");
-let blue = document.getElementById("#blue");
-let yellow = document.getElementById("#yellow"); 
+
+var green = document.getElementById("green");
+var red = document.getElementById("red");
+var blue = document.getElementById("blue");
+var yellow = document.getElementById("yellow"); 
 var randomarray = ['green', 'red', 'blue', 'yellow']
-let random = Math.floor(Math.random()*randomarray.length)
+/*let random = Math.floor(Math.random()*randomarray.length)
 const randomm = randomarray[random]
-console.log(randomm)
+console.log(randomm)*/
 /*
 var audio = new Audio('./assets/sounds/red.mp3');
 audio.play();*/
-
-if(randomm == 'red'){
-  /*var audio = new Audio('./assets/sounds/red.mp3');
-  audio.play();*/
-
-  // blow button
-  const red = document.querySelector("#red");
-  console.log(red.style);
-  red.style.boxShadow = "1px 1px 20px 10px white";
-  setTimeout(function(){
-    red.style.boxShadow = "none";
-  },10);
+/*
+document.querySelector("#body").onclick = function(){
+  
+  console.log("hi")
+  //const 
+  for(let i = 0 ; i < 15 ; i++){
+    console.log("hello")
+    let random = Math.floor(Math.random()*randomarray.length)
+    const randomm = randomarray[random]
+    console.log(randomm)
+  if(randomm == 'red'){
+    var audio = new Audio('./assets/sounds/red.mp3');
+    audio.play();
+    // blow button
+    const red = document.querySelector("#red");
+    console.log(red.style);
+    red.style.boxShadow = "1px 1px 20px 10px white";
+    setTimeout(function(){
+      red.style.boxShadow = "none";
+    },10);
+  }
+  else if((randomm == 'blue')){
+    var audio = new Audio('./assets/sounds/blue.mp3');
+    //audio.muted = true;
+    audio.play(); 
+    // blow button
+    const red = document.querySelector("#blue");
+    console.log(red.style);
+    red.style.boxShadow = "1px 1px 20px 10px white";
+    setTimeout(function(){
+      red.style.boxShadow = "none";
+    },10);
+  }
+  else if((randomm == 'yellow')){
+    var audio = new Audio('./assets/sounds/yellow.mp3');
+    //audio.muted = true;
+    audio.play(); 
+    // blow button
+    const red = document.querySelector("#yellow");
+    console.log(red.style);
+    red.style.boxShadow = "1px 1px 20px 10px white";
+    setTimeout(function(){
+      red.style.boxShadow = "none";
+    },10);
+  }
+  else{
+    var audio = new Audio('./assets/sounds/green.mp3');
+    //audio.muted = true;
+    audio.play(); 
+    // blow button
+    const red = document.querySelector("#green");
+    console.log(red.style);
+    red.style.boxShadow = "1px 1px 20px 10px white";
+    setTimeout(function(){
+      red.style.boxShadow = "none";
+    },10);
+  }
 }
-else{
- /* var audio = new Audio('./assets/sounds/red.mp3');
-  audio.muted = true;
-  audio.play(); */
-  // blow button
-  const red = document.querySelector("#red");
-  console.log(red.style);
-  red.style.boxShadow = "1px 1px 20px 10px white";
-  setTimeout(function(){
-    red.style.boxShadow = "none";
-  },10);
 }
+*/
 /*
 // Create empty array
 const clickarray = [];
@@ -48,7 +84,7 @@ function clickByItself(param){
   //document.getElementById(param).click();
 }
 clickByItself(randomm); */
-
+/*
 // Array
 const clickarray = [];
 document.querySelector("#red").onclick = function(){
@@ -66,7 +102,7 @@ document.querySelector("#red").onclick = function(){
     red.style.boxShadow = "none";
     red.style.backgroundColor = "red";
   },80);
-}
+} 
 // green button
 document.querySelector("#green").onclick = function(){
   clickarray.push("green");
@@ -119,7 +155,7 @@ document.querySelector("#yellow").onclick = function(){
     red.style.backgroundColor = "yellow";
   },80);
 }
-
+*/
 //const element = document.getElementById("red");
 //element.addEventListener("click", myFunction);
 
@@ -152,3 +188,68 @@ document.querySelector("#yellow").onclick = function(){
 //function myFunction() {
 ///  document.getElementById("red").audio.play();
 //}
+
+// Function
+
+function startRed(){
+  // audio play
+  var audio = new Audio('./assets/sounds/red.mp3');
+  audio.play(); 
+  red.style.boxShadow = "1px 1px 20px 10px white";
+  red.style.backgroundColor = "grey";
+  setTimeout(function(){
+    red.style.boxShadow = "none";
+    red.style.backgroundColor = "red";
+  },80);
+}
+
+function startgreen(){
+  // audio play
+  var audio = new Audio('./assets/sounds/green.mp3');
+  audio.play(); 
+  green.style.boxShadow = "1px 1px 20px 10px white";
+  green.style.backgroundColor = "grey";
+  setTimeout(function(){
+    green.style.boxShadow = "none";
+    green.style.backgroundColor = "green";
+  },80);
+}
+
+function startYellow(){
+  // audio play
+  var audio = new Audio('./assets/sounds/yellow.mp3');
+  audio.play(); 
+  yellow.style.boxShadow = "1px 1px 20px 10px white";
+  yellow.style.backgroundColor = "grey";
+  setTimeout(function(){
+    yellow.style.boxShadow = "none";
+    yellow.style.backgroundColor = "yellow";
+  },80);
+}
+
+function startBlue(){
+  // audio play
+  var audio = new Audio('./assets/sounds/blue.mp3');
+  audio.play(); 
+  blue.style.boxShadow = "1px 1px 20px 10px white";
+  blue.style.backgroundColor = "grey";
+  setTimeout(function(){
+    blue.style.boxShadow = "none";
+    blue.style.backgroundColor = "blue";
+  },80);
+}
+
+// Event
+
+red.addEventListener("click",function(){
+  startRed()
+});
+blue.addEventListener("click",function(){
+  startBlue()
+});
+yellow.addEventListener("click",function(){
+  startYellow()
+});
+green.addEventListener("click",function(){
+  startgreen()
+});
