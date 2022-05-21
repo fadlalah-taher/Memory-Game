@@ -1,9 +1,10 @@
-
+var container = document.getElementsByClassName("container");
+var body = document.getElementById("body");
 var green = document.getElementById("green");
 var red = document.getElementById("red");
 var blue = document.getElementById("blue");
 var yellow = document.getElementById("yellow"); 
-var randomarray = ['green', 'red', 'blue', 'yellow']
+var randomarray = ['green', 'red', 'blue', 'yellow'];
 /*let random = Math.floor(Math.random()*randomarray.length)
 const randomm = randomarray[random]
 console.log(randomm)*/
@@ -190,7 +191,7 @@ document.querySelector("#yellow").onclick = function(){
 //}
 
 // Function
-
+/*
 function startRed(){
   // audio play
   var audio = new Audio('./assets/sounds/red.mp3');
@@ -237,19 +238,71 @@ function startBlue(){
     blue.style.boxShadow = "none";
     blue.style.backgroundColor = "blue";
   },80);
+}*/
+
+function gameStart(){
+  if(activeGame == true){
+    activeButton = true;
+
+  }
 }
+function blow(button){
+  var color = button.style.backgroundColor;
+  // audio play
+  if(button == yellow){
+    var audio = new Audio('./assets/sounds/yellow.mp3');
+  }
+  else if(button == red){
+    var audio = new Audio('./assets/sounds/red.mp3');
+  }
+  else if(button == green){
+    var audio = new Audio('./assets/sounds/green.mp3');
+  }
+  else{
+    var audio = new Audio('./assets/sounds/blue.mp3');
+  }
+  audio.play(); 
+
+  // blow
+  button.style.boxShadow = "1px 1px 20px 10px white";
+  button.style.backgroundColor = "grey";
+  setTimeout(function(){
+    button.style.boxShadow = "none";
+    button.style.backgroundColor = color;
+  },80);
+}
+
+// Variable
+
+activeGame = false;
+activeButton = false;
+
 
 // Event
 
 red.addEventListener("click",function(){
-  startRed()
+  if(activeButton == true){
+    blow(red);
+  }
 });
 blue.addEventListener("click",function(){
-  startBlue()
+  if(activeButton == true){
+    blow(blue);
+  }
 });
 yellow.addEventListener("click",function(){
-  startYellow()
+  if(activeButton == true){
+    blow(yellow);
+  }
 });
 green.addEventListener("click",function(){
-  startgreen()
+  if(activeButton == true){
+    blow(green);
+  }
 });
+
+body.addEventListener("click", function(){
+  activeGame = true;
+  gameStart();
+});
+
