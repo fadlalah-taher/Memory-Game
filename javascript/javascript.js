@@ -18,12 +18,14 @@ var level = 0;
 var maxLevel = 10;
 var lost = false;
 
+// functions
+
 function gameStart(){
   if(activeGame == true){
     activeButton = true;
   }
   if(activeContinue == true){
-      console.log("Hello fadel");
+      //console.log("Hello fadel");
       header.innerHTML = `Level is ${level + 1}`;
       var randomInput = [];
       var arrayEmpty = [];
@@ -43,7 +45,7 @@ function randomWindow(){
   }
 }
 randomWindow();
-console.log(randomArrayy);
+//console.log(randomArrayy);
 
 function autoClick(val){
   var buttonClick = randomArrayy[val];
@@ -51,8 +53,6 @@ function autoClick(val){
   glow(buttonClick);  
   activeContinue = false;
   console.log(" AUTOCLICK");
-  
-    
 }
 
 // wait function
@@ -64,8 +64,6 @@ function wait(ms){
     end = new Date().getTime();
  }
 }
-
-
 function glow(button){
   if(button == 3){
     yellow.style.boxShadow = "1px 1px 20px 10px white";
@@ -132,8 +130,7 @@ function checkSeq(seq){
     }
     if(counter == level){
       addlevel();
-      console.log("Add level");
-      
+      console.log("Add level"); 
     }
     else{
       counter = counter + 1;
@@ -154,7 +151,6 @@ function addlevel(){
 }
 
 // Event
-
 red.addEventListener("click",function(){
   if(activeButton == true && activeContinue == false){
     glow(2);
