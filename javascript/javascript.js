@@ -11,7 +11,7 @@ var yellow = document.getElementById("yellow");
 
 activeGame = false;
 activeButton = false;
-activeautoClick = false;
+//activeautoClick = false;
 activeContinue = true;
 var counter = 0;
 var level = 0;
@@ -24,7 +24,7 @@ function gameStart(){
   }
   if(activeContinue == true){
       console.log("Hello fadel");
-      header.innerHTML = `level is ${level + 1}`;
+      header.innerHTML = `Level is ${level + 1}`;
       var randomInput = [];
       var arrayEmpty = [];
       autoClick(0);
@@ -52,8 +52,7 @@ function autoClick(val){
   var buttonClick = randomArrayy[val];
   console.log(buttonClick); 
   randomInput.push(buttonClick);
-  wait(2000);
-  
+  wait(1000);
   glow(buttonClick);  
   activeContinue = false;
   console.log(" AUTOCLICK");
@@ -61,9 +60,8 @@ function autoClick(val){
     
 }
 
-
-
 // wait function
+
 function wait(ms){
   var start = new Date().getTime();
   var end = start;
@@ -74,8 +72,6 @@ function wait(ms){
 
 
 function glow(button){
-  //var color = button.style.backgroundColor;
-  // audio play
   if(button == 3){
     
     yellow.style.boxShadow = "1px 1px 20px 10px white";
@@ -117,6 +113,7 @@ function glow(button){
   },200);
   }
 }
+
 // Lose functcion
 function youLose(){
   header.innerHTML = "Game Over, Press Any Key To Restart ";
@@ -169,6 +166,7 @@ function checkSeq(seq){
   }
   
 }
+
 function addlevel(){
   level = level +1;
   counter = 0;

@@ -48,8 +48,18 @@ header{
 #blue{
     background-color: blue;
 }
-/*
-.highlight {
-    box-shadow:  1px 1px 20px 10px white;
-    
-}*/
+
+@media only screen and (max-width: 800px) {
+    #header{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .head{
+        font-size: 50px;
+    }
+    .boxes button{
+        width: 180px;
+        height: 160px;
+    }
+}
