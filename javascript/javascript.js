@@ -32,15 +32,13 @@ function gameStart(){
 }
 
 // Random 
-var randomarray = [green, red, blue, yellow];
+var arrayColor = [green, red, blue, yellow];
 var randomArrayy = [];
-var randomInput = [];
-//var arrayEmpty = [];
 
 function randomWindow(){
   for(var i=0 ; i < maxLevel ; i++){
-    var random = Math.floor(Math.random()*randomarray.length);
-    var buttonClick = parseInt(randomarray[random].value);
+    var random = Math.floor(Math.random()*arrayColor.length);
+    var buttonClick = parseInt(arrayColor[random].value);
     randomArrayy[i] = buttonClick;
   }
 }
@@ -48,10 +46,7 @@ randomWindow();
 console.log(randomArrayy);
 
 function autoClick(val){
-  console.log(val);
   var buttonClick = randomArrayy[val];
-  console.log(buttonClick); 
-  randomInput.push(buttonClick);
   wait(1000);
   glow(buttonClick);  
   activeContinue = false;
@@ -73,11 +68,10 @@ function wait(ms){
 
 function glow(button){
   if(button == 3){
-    
     yellow.style.boxShadow = "1px 1px 20px 10px white";
     yellow.style.backgroundColor = "grey";
     setTimeout(function(){
-      new Audio('./assets/sounds/yellow.mp3').play();
+      new Audio('./assets/sounds/yellow.mp3').play(); // sound
       yellow.style.boxShadow = "none";
       yellow.style.backgroundColor = "yellow";
   },200);
@@ -86,30 +80,29 @@ function glow(button){
     
     red.style.boxShadow = "1px 1px 20px 10px white";
     red.style.backgroundColor = "grey";
-  setTimeout(function(){
-    new Audio('./assets/sounds/red.mp3').play();
-    red.style.boxShadow = "none";
-    red.style.backgroundColor = "red";
+    setTimeout(function(){
+      new Audio('./assets/sounds/red.mp3').play(); // sound
+      red.style.boxShadow = "none";
+      red.style.backgroundColor = "red";
   },200);
   }
    if(button == 1){
     
     green.style.boxShadow = "1px 1px 20px 10px white";
-  green.style.backgroundColor = "grey";
-  setTimeout(function(){
-    new Audio('./assets/sounds/green.mp3').play();
-    green.style.boxShadow = "none";
-    green.style.backgroundColor = "green";
+    green.style.backgroundColor = "grey";
+    setTimeout(function(){
+      new Audio('./assets/sounds/green.mp3').play(); // sound
+      green.style.boxShadow = "none";
+      green.style.backgroundColor = "green";
   },200);
   }
    if (button==4){
-    
     blue.style.boxShadow = "1px 1px 20px 10px white";
-  blue.style.backgroundColor = "grey";
-  setTimeout(function(){
-    new Audio('./assets/sounds/blue.mp3').play();
-    blue.style.boxShadow = "none";
-    blue.style.backgroundColor = "blue";
+    blue.style.backgroundColor = "grey";
+    setTimeout(function(){
+      new Audio('./assets/sounds/blue.mp3').play(); // sound
+      blue.style.boxShadow = "none";
+      blue.style.backgroundColor = "blue";
   },200);
   }
 }
@@ -129,20 +122,6 @@ function youLose(){
 // Next Level
 function nextLevel(level){
   header.innerHTML = "Level " + level;
-}
-
-
-function callautoClick(){
-  console.log("Hello Fadel thats it");
-  for(var i = arrayEmpty.length-1; i > 0 ; i--){
-    console.log(arrayEmpty[i].value);
-    console.log(randomArrayy[i].value);
-    if(arrayEmpty[i].value == randomArrayy[i].value){
-      console.log("Hello Fadel thats it");
-      nextLevel(level);
-    }
-  }
- 
 }
 
 function checkSeq(seq){
@@ -195,6 +174,7 @@ blue.addEventListener("click",function(){
     },1000);
   }
 });
+
 yellow.addEventListener("click",function(){
   if(activeButton == true && activeContinue == false){
     glow(3);
@@ -204,6 +184,7 @@ yellow.addEventListener("click",function(){
     },1000);
   }
 });
+
 green.addEventListener("click",function(){
   if(activeButton == true && activeContinue == false){
     glow(1);
