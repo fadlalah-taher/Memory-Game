@@ -121,7 +121,16 @@ function blow(button){
 
 }
 // Lose functcion
-
+function youLose(){
+  header.innerHTML = "Game Over, Press Any Key To Restart ";
+  body.style.backgroundColor = "red";
+  new Audio('./assets/sounds/wrong.mp3').play();
+  
+  setTimeout(function(){
+    body.style.boxShadow = "none";
+    body.style.backgroundColor = "rgb(16, 16, 60)";
+  },80);
+}
 
 // Next Level
 function nextLevel(level){
@@ -156,10 +165,10 @@ function checkSeq(seq){
     else{
       counter = counter + 1;
     }
-    console.log("True");
-  }else{
+  }
+  else{
     lost = true;
-    //youLose();
+    youLose();
   }
   
 }
