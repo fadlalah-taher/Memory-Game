@@ -54,7 +54,7 @@ function autoClick(val){
   randomInput.push(buttonClick);
   wait(2000);
   
-  blow(buttonClick);  
+  glow(buttonClick);  
   activeContinue = false;
   console.log(" AUTOCLICK");
   
@@ -73,7 +73,7 @@ function wait(ms){
 }
 
 
-function blow(button){
+function glow(button){
   //var color = button.style.backgroundColor;
   // audio play
   if(button == 3){
@@ -116,9 +116,6 @@ function blow(button){
     blue.style.backgroundColor = "blue";
   },200);
   }
-
-  // blow
-
 }
 // Lose functcion
 function youLose(){
@@ -176,14 +173,14 @@ function addlevel(){
   level = level +1;
   counter = 0;
   header.innerHTML = `Level is ${level + 1}`;
-  blow(randomArrayy[level]);
+  glow(randomArrayy[level]);
 }
 
 // Event
 
 red.addEventListener("click",function(){
   if(activeButton == true && activeContinue == false){
-    blow(2);
+    glow(2);
     activeContinue == true;
     setTimeout(function(){
       checkSeq(2);
@@ -193,7 +190,7 @@ red.addEventListener("click",function(){
 
 blue.addEventListener("click",function(){
   if(activeButton == true && activeContinue == false){
-    blow(4);
+    glow(4);
     activeContinue == true;
     setTimeout(function(){
       checkSeq(4);
@@ -202,7 +199,7 @@ blue.addEventListener("click",function(){
 });
 yellow.addEventListener("click",function(){
   if(activeButton == true && activeContinue == false){
-    blow(3);
+    glow(3);
     activeContinue == true;
     setTimeout(function(){
       checkSeq(3);
@@ -211,7 +208,7 @@ yellow.addEventListener("click",function(){
 });
 green.addEventListener("click",function(){
   if(activeButton == true && activeContinue == false){
-    blow(1);
+    glow(1);
     activeContinue == true;
     setTimeout(function(){
       checkSeq(1);
